@@ -2,6 +2,7 @@ import add from '../__mocks__/add.js';
 import deleteItem from '../__mocks__/delete.js';
 import edit from '../__mocks__/edit.js';
 import clear from '../__mocks__/clearAllCompleted.js';
+import check from '../__mocks__/check.js';
 // import displayTask from '../__mocks__/displayTask.js';
 
 beforeAll(() => {
@@ -59,6 +60,14 @@ describe('Test the edit and clearALlCompleted functions', () => {
 
     todos = edit('Hola amigo', 3);
     expect(task.value).toBe(todos[3].description);
+  });
+
+  test('The completed status should be true after check', () => {
+    let todos = JSON.parse(localStorage.getItem('todo-list'));
+
+    todos = check(2);
+
+    expect(todos[2].completed).toBe(true);
   });
 
   test('It should clear all the completed Tasks', () => {
