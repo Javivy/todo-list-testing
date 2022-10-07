@@ -60,4 +60,18 @@ describe('Test the edit and clearALlCompleted functions', () => {
     todos = edit('Hola amigo', 3);
     expect(task.value).toBe(todos[3].description);
   });
+
+  test('It should clear all the completed Tasks', () => {
+    const clearTasks = clear();
+    let isTrue = true;
+    clearTasks.map((task) => {
+      if (task.completed === false) {
+        isTrue = true;
+      } else {
+        isTrue = false;
+      }
+      return isTrue;
+    });
+    expect(isTrue).toBe(true);
+  });
 });
