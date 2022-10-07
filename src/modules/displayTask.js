@@ -43,8 +43,6 @@ const displayTask = (obj) => {
   task.append(label, settings);
   tasksList.append(task);
 
-  console.log(tasksList);
-
   check(obj);
 };
 
